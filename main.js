@@ -115,3 +115,4 @@ let fetchRecipeData = () =>{
 
 
 
+window.onload = fetchRecipeData();
