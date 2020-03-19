@@ -5,15 +5,26 @@ var recipeObj = {};
 let addRecipe = () =>{
     let recipeName = document.getElementById("recipeNameInp").value;
     let ingrediant = document.getElementById("ingrediantInp").value;
+ 
+    if(recipeName == '' || ingrediant == ''){
+        if(recipeName == ''){
+            recipeNameInp.style.background = "#ffdddd";
+        }
+        if(ingrediant == ''){
+            ingrediantInp.style.background = "#ffdddd";
+        }
 
-       
-    var ingrediantAr = ingrediant.split(',');
+    }else if(recipeName !== '' || ingrediant !== ''){
+        var ingrediantAr = ingrediant.split(',');
     
-    recipeObj.recipeName = recipeName;
-    recipeObj.ingrediantAr =ingrediantAr;
+        recipeObj.recipeName = recipeName;
+        recipeObj.ingrediantAr =ingrediantAr;
 
-    recipeArr.push(recipeObj);
-    recipeObj = {};
+        recipeArr.push(recipeObj);
+        recipeObj = {};
+    }
+       
+    
 
     localStorage.setItem("recipeArr", JSON.stringify(recipeArr));
 
@@ -102,54 +113,5 @@ let fetchRecipeData = () =>{
     }
 }
 
-// var arr = [  'a', ['b','c'], ['d','e']];
-//  for (var i=0; i < arr.length; i++) { 
-//      console.log("i",i); 
-//   for (var j=0; j < arr[i].length; j++) {  
-//     //    console.log(arr[i].length);
-//     console.log(arr[j]);  
-//      }
-// }
 
 
-{/* <div id="accordion">
-    <div class="card">
-        <div class="card-header">
-            <a class="card-link" data-toggle="collapse" href="#collapseOne">
-
-                <div id="recipeOutput" class="row">
-                </div>
-
-            </a>
-        </div>
-        <div id="collapseOne" class="collapse" data-parent="#accordion">
-            <div class="card-body">
-
-                <h4 class="text-center text-info">Ingrediants</h4><hr>
-                <div id="ingrediantOutput">
-                    <input type="text">
-                </div>
-                
-            </div>
-            
-            <button onclick="event.preventDefault();updateStudent()" id="updateInfo" class="btn btn-primary ml-4 mb-2">Delete</button>
-            <button onclick="event.preventDefault();updateStudent()" id="updateInfo" class="btn btn-primary mb-2" data-toggle="modal" data-target="#exampleModalOne">Edit</button>
-
-            
-        </div>
-    </div>
-</div> */}
-
-{/* 
-
-        recipeOutput.innerHTML +=  '<div class="col-lg-12 bg-light">'+
-                                    '<h6>'+ recipeName +'</h6>'+
-                                    '</div>';
-
-
-
-
-        ingrediantOutput.innerHTML += '<div>'+
-                                        '<h6 class="bg-primary col-lg-12">'+ outPut +'</h6>'+
-                                        '</div>'; */}
-                                    
